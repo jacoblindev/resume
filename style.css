@@ -5,6 +5,19 @@ body {
 }
 
 main {
-    text-align: center;
+    /* text-align: center; */
     padding: 1rem;
+}
+
+section {
+    padding: 1rem;
+}
+
+section:not(:last-child) {
+    border-bottom: 5px solid #000;
+}
+
+ul {
+    /* text-align: left; */
+    padding-inline-start: 1.5rem;
 }
