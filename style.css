@@ -7,17 +7,60 @@ body {
 main {
     /* text-align: center; */
     padding: 1rem;
+    max-width: 800px;   /* A4‑ish width (~8.3in) */
+    margin: 0 auto;     /* center horizontally */
 }
 
-section {
-    padding: 1rem;
-}
-
-section:not(:last-child) {
-    border-bottom: 5px solid #000;
+section:not(:first-of-type) {
+    border-top: 3px solid #000;
 }
 
 ul {
     /* text-align: left; */
     padding-inline-start: 1.5rem;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+button {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.75rem;
+    border: 1px solid #000;
+    background: #fff;
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #f0f0f0;
+}
+
+/* --- Sticky top navbar --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    padding: 0.5rem 1rem;
+    /*border-bottom: 2px solid #000;*/
+    max-width: 800px; /* match main width */
+    margin: 0 auto;
+}
+
+.logo img {
+    height: 36px;
+    display: block;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 0.5rem;
 }

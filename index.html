@@ -1,95 +1,224 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link href="./images/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+    <link href="./images/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+    <link href="./images/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+
     <title>Jacob Lin | Resume</title>
-    <link rel="stylesheet" href="normalize.css">
-    <link rel="stylesheet" href="style.css">
+
+    <link href="normalize.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
 </head>
+
 <body>
-    <main>
-        <section id="info">
-            <h1>林健民<br>JACOB LIN</h1>
-            <h3>TAIPEI, TAIWAN</h3>
-            <ul>
-                <li>jacoblindev@gmail.com</li>
-                <li>github.com/jacoblindev</li>
-                <li>www.jldev.com</li>
-            </ul>
-            <!-- <button>Print</button> -->
-        </section>
+<nav class="navbar">
+    <a class="logo" href="https://jacoblindev.github.io/jldev/" rel="noopener" target="_blank">
+        <!-- replace with the exact logo path if different -->
+        <img alt="Jacob Lin Logo" src="images/JLDev-Logo.png">
+    </a>
 
-        <section id="experience">
-            <h2>PROFESSIONAL EXP</h2>
-            <h3>Software Developer/ Project Manager | RT-Mart</h3>
-            <p><em>Taipei City, Taiwan | 04.2020 ~ Present</em></p>
-            <ul>
-                <li>RT-APP</li>
-                <li>e-Flow</li>
-                <li>Dashboard</li>
-            </ul>
-            <h3>Architectural Designer | W.J.L. Architects</h3>
-            <p><em>Taoyuan City, Taiwan | 08.2011 ~ 09.2014</em></p>
-            <ul>
-                <li>Developing design concepts and models on projects of a wide-ranging scale such as airports, stations, leisure spaces, school facilities, and pedestrian bridges designs...!</li>
-                <li>Responsible for a few renovation projects like the Shimen Township recycling plants renovation project and the Tiancheng Commercial Building urban renewal project.</li>
-                <li>Effectively providing architectural design and construction services from concepts through to construction finished.</li>
-            </ul>
-            <h3>Junior Architectural Designer | Row & Associates Architects</h3>
-            <p><em>New Taipei City, Taiwan | 03.2010 ~ 08.2011</em></p>
-            <ul>
-                <li>Developing design concepts and models on projects of a wide-ranging scale such as airports, stations, leisure spaces, school facilities, and pedestrian bridges designs...!</li>
-                <li>Responsible for a few renovation projects like the Shimen Township recycling plants renovation project and the Tiancheng Commercial Building urban renewal project.</li>
-                <li>Effectively providing architectural design and construction services from concepts through to construction finished.</li>
-            </ul>
-        </section>
+    <div class="nav-actions">
+        <button id="langBtn">中文</button>
+        <button id="pdfBtn">PDF</button>
+    </div>
+</nav>
 
-        <section id="working-holiday">
-            <h2>WORKING HOLIDAY EXP</h2>
-            <h3>Building Manager | Alliance Maintenance LTD</h3>
-            <p><em>Vancouver, Canada | 04.2018 ~ 06.2019</em></p>
-            <ul>
-                <li>Managing a 125-unit residential Strata building and responsible for all daily operations and building maintenances.</li>
-            </ul>
-            <h3>Shell & Custom Builder | InstallEx VIC</h3>
-            <p><em>Melbourne, Australia | 03.2017 ~ 03.2018</em></p>
-            <ul>
-                <li>As casual builder work on exhibits, events, custom stands, and retail installations across Melbourne. Participated in shows like CISCO Live2018, PAX AUS2017, White Night et.!</li>
-            </ul>
-            <h3>Vaccinator | DA Hall (Oak Feed Mill)</h3>
-            <p><em>Queensland, Australia | 04.2015 ~ 10.2016</em></p>
-            <ul>
-                <li>Vaccinating chicken and maintain the cleanliness of the barns. Also, as a general farmhand.</li>
-            </ul>
-        </section>
+<main>
+    <!-- Vue will render résumé sections here -->
+    <div id="app"></div>
+</main>
 
-        <section id="language">
-            <h2>LANGUAGE</h2>
-            <ul>
-                <li>Chinese - Native</li>
-                <li>English - Advance (TOEIC 960)</li>
-            </ul>
-        </section>
-
-        <section id="education">
-            <h2>EDUCATION</h2>
-            <ul>
-                <li>
-                    <p><strong>Certificate of Servlet & JSP</strong></p>
-                    <p><em>TaipeiVDI, Taiwan | 2019</em></p>
-                </li>
-                <li>
-                    <p><strong>Diploma of Leadership and Management</strong></p>
-                    <p><em>RGIT, Australia | 2017</em></p>
-                </li>
-                <li>
-                    <p><strong>Bachelor of Architectural Design</strong></p>
-                    <p><em>CYCU, Taiwan | 2003 ~ 2008</em></p>
-                </li>
-            </ul>
-        </section>
-    </main>
 </body>
+<!-- Vue 3 & html2pdf CDN -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+    /* --------- Resume Content (EN & 中文) --------- */
+    const resume = {
+        en: {
+            name: 'Jacob Lin',
+            title: 'Senior Java Backend Engineer / Solution Architect',
+            location: 'Taipei, Taiwan',
+            summary: 'Senior Java Backend Engineer / Solution Architect who turns complex business challenges into elegant, scalable systems. Drawing on an earlier career in architectural design, I visualise software end‑to‑end, decompose it into modular services, and lead teams to deliver with Java 17, Spring Boot, JavaScript and modern cloud platforms. I thrive as the technical bridge between stakeholders and developers, aligning road‑maps, lifting performance, and ensuring maintainability across the stack.',
+            experience: [
+                {
+                    role: 'Principal Engineer',
+                    company: 'TPIsoftware',
+                    period: 'Aug 2022 – Present',
+                    bullets: [
+                        'Lead Digifusion middleware (Java 17, Spring Boot).',
+                        'Mentor 6+ engineers; build CI/CD & Kubernetes pipeline.',
+                        'Improved deployment frequency by 30 %.'
+                    ]
+                },
+                {
+                    role: 'Full‑stack Developer / PM',
+                    company: 'RT‑Mart',
+                    period: 'Apr 2020 – Aug 2022',
+                    bullets: [
+                        'Migrated legacy Java EE to Spring Boot micro‑services.',
+                        'Implemented GraphQL gateway; cut feature lead‑time 40 %.'
+                    ]
+                }
+            ],
+            skills: [
+                'Java 17 / 21',
+                'Spring Boot 3, Vue 3',
+                'PostgreSQL / MongoDB / Redis',
+                'Docker / Kubernetes / GCP (Associate Cloud Engineer)',
+                'Mermaid / PlantUML / Draw.io',
+                'IntelliJ IDEA / VS Code',
+            ],
+            education: [
+                {degree: 'JSP & Servlet, Java Programming', school: 'Taipei City Vocational Dev. Institute', period: '2020'},
+                {degree: 'Leadership & Management Diploma', school: 'Royal Gurkhas Institute Of Technology', period: '2017'},
+                {degree: 'Architecture Studies', school: 'Chung Yuan Christian University', period: ''},
+            ],
+            contact: {
+                email: 'jacoblindev@gmail.com',
+                github: 'https://github.com/jacoblindev',
+                linkedin: 'https://www.linkedin.com/in/jacob-lin-83131154/'
+            }
+        },
+        zh: {
+            name: '林健民 (Jacob Lin)',
+            title: '資深 Java 工程師 / 解決方案架構師',
+            location: '台北, 台灣',
+            summary: '具建築設計背景的資深 Java 後端工程師暨解決方案架構師，專長在於將複雜商業需求化為優雅、可擴充的企業級系統。憑藉對系統全局的視覺化能力，運用 Java 17、Spring Boot、JavaScript 及雲端平台，拆解並重組模組化服務，引領團隊高效交付。擅長在業務與研發之間搭起技術橋樑，協助制定產品路線、優化效能，並確保系統易於維運。',
+            experience: [
+                {
+                    role: '資深工程師',
+                    company: 'TPIsoftware',
+                    period: '2022 年 8 月 – 至今',
+                    bullets: [
+                        '負責 Digifusion 中介軟體 (Java 17, Spring Boot)。',
+                        '指導 6 位工程師；建立 CI/CD 與 Kubernetes 流程。',
+                        '將部署頻率提升 30%。'
+                    ]
+                },
+                {
+                    role: '全端工程師 / 專案經理',
+                    company: '大潤發 RT‑Mart',
+                    period: '2020 年 4 月 – 2022 年 8 月',
+                    bullets: [
+                        '將舊有 Java EE 系統遷移至 Spring Boot 微服務。',
+                        '實作 GraphQL Gateway，功能交付時間縮短 40%。'
+                    ]
+                }
+            ],
+            skills: [
+                'Java 17 / 21',
+                'Spring Boot 3, Vue 3',
+                'PostgreSQL / MongoDB / Redis',
+                'Docker / Kubernetes / GCP (Associate Cloud Engineer)',
+                'Mermaid / PlantUML / Draw.io',
+                'IntelliJ IDEA / VS Code',
+            ],
+            education: [
+                {degree: 'JSP程式設計', school: '台北市立職能發展學院', period: '2020'},
+                {degree: '領導與管理證書', school: 'Royal Gurkhas Institute Of Technology', period: '2017'},
+                {degree: '建築學士', school: '中原大學', period: ''},
+            ],
+            contact: {
+                email: 'jacoblindev@gmail.com',
+                github: 'https://github.com/jacoblindev',
+                linkedin: 'https://www.linkedin.com/in/jacob-lin-83131154/'
+            }
+        }
+    };
+
+    /* --------- Vue 3 App --------- */
+    const {createApp} = Vue;
+
+    createApp({
+        data() {
+            return {
+                lang: 'en',
+                resume
+            };
+        },
+        computed: {
+            r() {
+                return this.resume[this.lang];
+            }
+        },
+        mounted() {
+            document.getElementById('langBtn').addEventListener('click', this.toggleLang);
+            document.getElementById('pdfBtn').addEventListener('click', this.downloadPdf);
+        },
+        methods: {
+            toggleLang() {
+                this.lang = this.lang === 'en' ? 'zh' : 'en';
+                document.getElementById('langBtn').innerText = this.lang === 'en' ? '中文' : 'EN';
+            },
+            downloadPdf() {
+                const opt = {
+                    margin: 0.5,
+                    filename: `${this.r.name.replace(/\\s+/g, '-').toLowerCase()}-resume.pdf`,
+                    jsPDF: {unit: 'in', format: 'a4', orientation: 'portrait'}
+                };
+                html2pdf().set(opt).from(document.querySelector('#app')).save();
+            }
+        },
+        template: `
+            <div>
+                <header>
+                    <h1>{{ r.name }}</h1>
+                    <h2>{{ r.title }}</h2>
+                    <h3>
+                        {{ r.location }} -
+                        <span><a :href="'mailto:' + r.contact.email" target="">Email</a></span> |
+                        <span><a :href="r.contact.linkedin" target="_blank">LinkedIn</a></span> |
+                        <span><a :href="r.contact.github" target="_blank">GitHub</a></span>
+                    </h3>
+                </header>
+
+                <section id="summary">
+                    <p>{{ r.summary }}</p>
+                </section>
+
+                <section id="experience">
+                    <h2>{{ lang === 'en' ? 'PROFESSIONAL EXP' : '專業經歷' }}</h2>
+                    <div v-for="job in r.experience" :key="job.role + job.company">
+                        <h3>{{ job.role }} | {{ job.company }}</h3>
+                        <p><em>{{ job.period }}</em></p>
+                        <ul>
+                            <li v-for="b in job.bullets" :key="b">{{ b }}</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section id="skills">
+                    <h2>{{ lang === 'en' ? 'SKILLS / CERTS' : '技能 / 證照' }}</h2>
+                    <ul>
+                        <li v-for="s in r.skills" :key="s">{{ s }}</li>
+                    </ul>
+                </section>
+
+                <section id="language">
+                    <h2>{{ lang === 'en' ? 'LANGUAGE' : '語言' }}</h2>
+                    <ul>
+                        <li>Chinese - Native</li>
+                        <li>English - Advance (TOEIC 960)</li>
+                    </ul>
+                </section>
+
+                <section id="education">
+                    <h2>{{ lang === 'en' ? 'EDUCATION' : '學歷' }}</h2>
+                    <ul>
+                        <li v-for="e in r.education" :key="e.school">
+                            <p><strong>{{ e.degree }}</strong> - <em>{{ e.school }}  {{ e.period }}</em></p>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        `
+    }).mount('#app');
+</script>
 </html>
