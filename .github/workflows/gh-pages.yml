@@ -1,0 +1,25 @@
+# GitHub Action: Auto‑deploy static files to GitHub Pages
+name: Deploy Resume to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  BUILD_DIR: .
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/configure-pages@v4
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.BUILD_DIR }}
+      - uses: actions/deploy-pages@v4
