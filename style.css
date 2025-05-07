@@ -75,9 +75,9 @@ button:hover {
 .name-block h1, .name-block h2 { margin: 0; }
 
 .avatar {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border-radius: 20%;
     object-fit: cover;
 }
 
@@ -93,10 +93,14 @@ button:hover {
 
 @media print {
     @page {
-        margin: 0.35in;
+        margin: 0.35in 0.5in;
     }
 
-    .company > .role-block {
+    section:not(:first-of-type) {
+        border-top: unset;
+    }
+
+    .role-block {
         page-break-inside: avoid;
     }
 
