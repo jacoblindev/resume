@@ -5,10 +5,9 @@ body {
 }
 
 main {
-    /* text-align: center; */
     padding: 1rem;
-    max-width: 800px;   /* A4‑ish width (~8.3in) */
-    margin: 0 auto;     /* center horizontally */
+    max-width: 800px; /* A4‑ish width (~8.3in) */
+    margin: 0 auto; /* center horizontally */
 }
 
 section:not(:first-of-type) {
@@ -63,4 +62,46 @@ button:hover {
 .nav-actions {
     display: flex;
     gap: 0.5rem;
+}
+
+/* --- profile photo layout --- */
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.name-block h1, .name-block h2 { margin: 0; }
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* --- Experience layout --- */
+.company {
+    margin-bottom: 1rem; /* space between companies */
+}
+
+.role-block {
+    margin-left: 1rem; /* indent roles under company */
+    margin-bottom: 0.75rem; /* space between role blocks */
+}
+
+@media print {
+    @page {
+        margin: 0.35in;
+    }
+
+    .company > .role-block {
+        page-break-inside: avoid;
+    }
+
+    .avatar,
+    .navbar {
+        display: none;
+    }
 }

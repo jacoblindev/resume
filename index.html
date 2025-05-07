@@ -18,13 +18,12 @@
 <body>
 <nav class="navbar">
     <a class="logo" href="https://jacoblindev.github.io/jldev/" rel="noopener" target="_blank">
-        <!-- replace with the exact logo path if different -->
         <img alt="Jacob Lin Logo" src="images/JLDev-Logo.png">
     </a>
 
     <div class="nav-actions">
         <button id="langBtn">中文</button>
-        <button id="pdfBtn">PDF</button>
+        <button id="pdfBtn">Print</button>
     </div>
 </nav>
 
@@ -36,7 +35,6 @@
 </body>
 <!-- Vue 3 & html2pdf CDN -->
 <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
 <script>
     /* --------- Resume Content (EN & 中文) --------- */
@@ -48,25 +46,59 @@
             summary: 'Senior Java Backend Engineer / Solution Architect who turns complex business challenges into elegant, scalable systems. Drawing on an earlier career in architectural design, I visualise software end‑to‑end, decompose it into modular services, and lead teams to deliver with Java 17, Spring Boot, JavaScript and modern cloud platforms. I thrive as the technical bridge between stakeholders and developers, aligning road‑maps, lifting performance, and ensuring maintainability across the stack.',
             experience: [
                 {
-                    role: 'Principal Engineer',
-                    company: 'TPI software',
+                    company: 'TPI Software',
+                    location: 'Taipei',
                     period: 'Aug 2022 – Present',
-                    bullets: [
-                        'Re‑architected the legacy e‑commerce order‑tracking system from Struts 2 / JSP to a Vue 3 SPA backed by Spring Boot REST APIs, cutting average page‑load time by ≈70% and enabling chain‑wide rollout to 20+ stores.',
-                        'Mentor 6+ engineers; build CI/CD & Kubernetes pipeline.',
-                        'Improved deployment frequency by 30%.'
+                    roles: [
+                        {
+                            title: 'Principal Engineer',
+                            period: 'Jan 2024 – Present',
+                            bullets: [
+                                'Upgraded SysTalk.CHAT service modules from Java 8 to Java 17 and refactored the codebase into a standard product line.',
+                                'Implemented a fork‑based repository strategy, reducing merge overhead by 40%.',
+                                'Mentored new hires and led intelligent‑customer‑service roll‑outs for Nan Shan General Insurance, YouBike and Hua Nan Bank.',
+                                'Provided architecture reviews and effort estimates for 10+ parallel projects.',
+                                'Contributed design and PoCs for SysTalk.VIKI (Gen‑AI platform) and SysTalk.ICR (intelligent OCR).'
+                            ]
+                        },
+                        {
+                            title: 'Senior Engineer',
+                            period: 'Jul 2023 – Dec 2023',
+                            bullets: [
+                                'Maintained six enterprise deployments of SysTalk.CHAT (Yuanta Securities, Mega Bank, Nan Shan Life, etc.).',
+                                'Converted the Java monorepo to a Maven multi‑module parent POM, accelerating releases by 40%.',
+                                'Delivered phase‑3 acceptance for Yuanta Life and full implementation for Yuanta Bank.',
+                                'Authored full architecture documentation and onboarding guides.'
+                            ]
+                        },
+                        {
+                            title: 'Engineer',
+                            period: 'Aug 2022 – Jun 2023',
+                            bullets: [
+                                'Performed offline deployments of SysTalk.CHAT on RHEL servers (NGINX, WildFly, Redis, ActiveMQ).',
+                                'Developed Spring Boot integrations with client and third‑party systems.',
+                                'Diagnosed and resolved production issues; fed fixes back into the product codebase.',
+                                'Set up the internal GitLab instance and migrated 80+ repositories to GitHub.'
+                            ]
+                        }
                     ]
                 },
                 {
-                    role: 'Full‑stack Developer / PM',
-                    company: 'RT‑Mart',
+                    company: 'RT‑Mart International',
+                    location: 'Taipei',
                     period: 'Apr 2020 – Aug 2022',
-                    bullets: [
-                        'Re‑architected the legacy e‑commerce order‑tracking system from Struts 2 / JSP to a Vue 3 SPA backed by Spring Boot REST APIs, cutting average page‑load time by ≈70% and enabling chain‑wide rollout to 20+ stores.',
-                        'Introduced a micro‑services‑inspired, modular architecture for the customer‑management platform, slashing deployment time 50% and simplifying future feature additions.',
-                        'Led a digital‑workflow initiative with FlowMaster BPM - expanded usage from 1 to 6 cross‑department forms in six months, boosting daily submissions 5×.',
-                        'Built a web‑based picking app featuring interactive SVG floor‑plan visualisation, replacing paper processes and lifting picker productivity 25%.',
-                        'Acted as the technical bridge for the RT‑Mart mobile app, aligning business, UX and engineering across 10+ release cycles with zero critical regressions.'
+                    roles: [
+                        {
+                            title: 'Full‑stack Developer / Project Manager',
+                            period: 'Apr 2020 – Aug 2022',
+                            bullets: [
+                                'Re‑architected the e‑commerce order‑tracking system from Struts 2 / JSP to Vue 3 SPA + Spring Boot REST APIs, cutting load time ~70% and rolling out to 20+ stores.',
+                                'Introduced a micro‑services‑inspired modular architecture for the customer‑management platform, halving deployment time.',
+                                'Expanded FlowMaster BPM usage from 1 to 6 cross‑department forms in six months, boosting daily submissions 5×.',
+                                'Built a web‑based picking app with interactive SVG floor plans, raising picker productivity 25%.',
+                                'Served as technical liaison for the RT‑Mart mobile app, steering 10+ release cycles with zero critical regressions.'
+                            ]
+                        }
                     ]
                 }
             ],
@@ -104,24 +136,59 @@
             summary: '具建築設計背景的資深 Java 後端工程師暨解決方案架構師，專長在於將複雜商業需求化為優雅、可擴充的企業級系統。憑藉對系統全局的視覺化能力，運用 Java 17、Spring Boot、JavaScript 及雲端平台，拆解並重組模組化服務，引領團隊高效交付。擅長在業務與研發之間搭起技術橋樑，協助制定產品路線、優化效能，並確保系統易於維運。',
             experience: [
                 {
-                    role: '資深工程師',
                     company: '昕力資訊股份有限公司',
+                    location: '台北',
                     period: '2022 年 8 月 – 至今',
-                    bullets: [
-                        '指導 6 位工程師；建立 CI/CD 與 Kubernetes 流程。',
-                        '將部署頻率提升 30%。'
+                    roles: [
+                        {
+                            title: '主任工程師 (Principal Engineer)',
+                            period: '2024 年 1 月 – 至今',
+                            bullets: [
+                                '將 SysTalk.CHAT 核心模組由 Java 8 升級至 Java 17，並重構為標準化產品線。',
+                                '推行 fork‑based repository 策略，核心功能同步工時降低 40%。',
+                                '指導新人並帶領團隊交付南山產險、YouBike、華南銀行等智能客服專案。',
+                                '為 10+ 客製需求提供架構評估與時程估算。',
+                                '參與 SysTalk.VIKI 生成式 AI 平台與 SysTalk.ICR 智能 OCR 方案設計。'
+                            ]
+                        },
+                        {
+                            title: '資深工程師 (Senior Engineer)',
+                            period: '2023 年 7 月 – 2023 年 12 月',
+                            bullets: [
+                                '維運 SysTalk.CHAT 於元大證券、兆豐銀行、南山人壽等 6 家企業環境。',
+                                '將 Monorepo 改造為 Maven Multi‑Module + Parent POM，發版時間縮短 40%。',
+                                '完成元大人壽三期與元大銀行全案驗收。',
+                                '撰寫完整產品架構文件並培訓新成員。'
+                            ]
+                        },
+                        {
+                            title: '工程師 (Engineer)',
+                            period: '2022 年 8 月 – 2023 年 6 月',
+                            bullets: [
+                                '於 RHEL 環境離線部署 SysTalk.CHAT（NGINX、WildFly、Redis、ActiveMQ、JRE）。',
+                                '使用 Spring Boot 開發 API，串接客戶核心系統與第三方平台。',
+                                '處理線上問題並回饋修補至產品代碼庫。',
+                                '建置內部 GitLab，後續遷移 80+ 儲存庫至 GitHub。'
+                            ]
+                        }
                     ]
                 },
                 {
-                    role: '全端工程師 / 專案經理',
                     company: '大潤發股份有限公司',
+                    location: '台北',
                     period: '2020 年 4 月 – 2022 年 8 月',
-                    bullets: [
-                        '將 Struts 2 / JSP 的電商訂單追蹤系統重構為 Vue 3 SPA + Spring Boot REST API，頁面載入速度提升約 70%，並成功推廣至全台 20+ 門市。',
-                        '為會員管理平台導入微服務化模組架構，部署時間縮短 50%，後續功能擴充更具彈性',
-                        '主導 FlowMaster BPM 數位化，半年內將流程由 1 張表單擴增至 6 張、涵蓋多部門，日提交流程量提升 5 倍。',
-                        '開發互動式 SVG 倉儲平面圖揀貨工具，取代紙本流程，使揀貨效率提升 25%。',
-                        '擔任 RT‑Mart 行動 App 技術橋樑，協調業務、UX 與研發，期間完成 10+ 次版本更新皆零重大回歸問題。'
+                    roles: [
+                        {
+                            title: '全端工程師 / 專案經理',
+                            period: '2020 年 4 月 – 2022 年 8 月',
+                            bullets: [
+                                '將 Struts 2 / JSP 電商訂單追蹤系統重構為 Vue 3 SPA + Spring Boot REST API，頁面速度提升 70%，布署至 20+ 門市。',
+                                '導入微服務化模組架構，部署時間減半。',
+                                '半年內將 FlowMaster BPM 流程由 1 張表單擴增至 6 張、跨多部門，日提交流程量提升 5 倍。',
+                                '開發互動式 SVG 倉儲平面圖揀貨工具，揀貨效率提升 25%。',
+                                '擔任 RT‑Mart 行動 App 技術橋梁，協調 10+ 版次皆零重大回歸問題。'
+                            ]
+                        }
                     ]
                 }
             ],
@@ -169,27 +236,28 @@
             toggleLang() {
                 this.lang = this.lang === 'en' ? 'zh' : 'en';
                 document.getElementById('langBtn').innerText = this.lang === 'en' ? '中文' : 'EN';
+                document.getElementById('pdfBtn').innerText = this.lang === 'en' ? 'Print' : '列印';
+                document.title = this.lang === 'en' ? 'Jacob Lin | Resume' : '林健民 | 履歷';
             },
             downloadPdf() {
-                const opt = {
-                    margin: 0.5,
-                    filename: `${this.r.name.replace(/\\s+/g, '-').toLowerCase()}-resume.pdf`,
-                    jsPDF: {unit: 'in', format: 'a4', orientation: 'portrait'}
-                };
-                html2pdf().set(opt).from(document.querySelector('#app')).save();
+                window.print();
             }
         },
         template: `
             <div>
-                <header>
-                    <h1>{{ r.name }}</h1>
-                    <h2>{{ r.title }}</h2>
-                    <h3>
-                        {{ r.location }} -
-                        <span><a :href="'mailto:' + r.contact.email" target="">Email</a></span> |
-                        <span><a :href="r.contact.linkedin" target="_blank">LinkedIn</a></span> |
-                        <span><a :href="r.contact.github" target="_blank">GitHub</a></span>
-                    </h3>
+                <header class="profile-header">
+                    <div class="name-block">
+                        <h1>{{ r.name }}</h1>
+                        <h2>{{ r.title }}</h2>
+                        <h3>
+                            {{ r.location }} -
+                            <span><a :href="'mailto:' + r.contact.email" target="">Email</a></span> |
+                            <span><a :href="r.contact.linkedin" target="_blank">LinkedIn</a></span> |
+                            <span><a :href="r.contact.github" target="_blank">GitHub</a></span>
+                        </h3>
+                    </div>
+                    <!-- replace the src with your actual photo -->
+                    <img alt="Jacob Lin" class="avatar" src="images/jacob-photo.jpg">
                 </header>
 
                 <section id="summary">
@@ -197,13 +265,18 @@
                 </section>
 
                 <section id="experience">
-                    <h2>{{ lang === 'en' ? 'EXPERIENCES' : '專業經歷' }}</h2>
-                    <div v-for="job in r.experience" :key="job.role + job.company">
-                        <h3>{{ job.role }} | {{ job.company }}</h3>
-                        <p><em>{{ job.period }}</em></p>
-                        <ul>
-                            <li v-for="b in job.bullets" :key="b">{{ b }}</li>
-                        </ul>
+                    <h2>{{ lang === 'en' ? 'PROFESSIONAL EXPERIENCE' : '專業經歷' }}</h2>
+
+                    <div v-for="company in r.experience" :key="company.company" class="company">
+                        <h3>{{ company.company }} <span v-if="company.location">— {{ company.location }}</span></h3>
+
+                        <div v-for="role in company.roles" :key="role.title + role.period" class="role-block">
+                            <h4>{{ role.title }}</h4>
+                            <p class="meta"><em>{{ role.period }}</em></p>
+                            <ul>
+                                <li v-for="b in role.bullets" :key="b">{{ b }}</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
